@@ -1,0 +1,6 @@
+<% content_for(:title, "Epiclonus") %>
+<h4>
+  <%= @chapter.name =>
+  <%= link_to edit_chapter_path(@chapter) do %> Edit <% end %>
+  <%= link_to chapter_path(@chapter) do %> Delete <% end %>
+</h4>

@@ -1,0 +1,24 @@
+<% content_for(:title, 'Epiclonus') %>
+
+<h4>Chapters</h4>
+
+  <% @chapters.each do |chapter| %>
+    <div>
+      <%= chapter.title %>
+      <ul>
+      <% chapter.sections.each do |section| %>
+
+        <li><%= section.title %>
+          <ul>
+            <% section.lessons.each do |lesson| %>
+            <li><%= link_to lesson.title, lesson_path(lesson) %> </li>
+            <% end %>
+          </ul>
+        </li>
+        <% end %>
+      <ul>
+    </div>
+
+  <% end %>
+
+<%= link_to 'Make a new Chapter', new_chapter_path %>
