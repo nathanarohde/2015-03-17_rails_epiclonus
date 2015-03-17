@@ -1,6 +1,6 @@
 <% content_for(:title, "Epiclonus") %>
 <h4>
-  <%= @chapter.name =>
+  <%= @chapter.title %>
   <%= link_to edit_chapter_path(@chapter) do %> Edit <% end %>
-  <%= link_to chapter_path(@chapter) do %> Delete <% end %>
+  <%= link_to chapter_path(@chapter), :data => {:confirm =>'Send into digital oblivion.', :method => 'delete'} do %> Delete <% end %>
 </h4>
