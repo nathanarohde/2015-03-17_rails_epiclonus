@@ -1,6 +1,28 @@
 <% content_for(:title, "Epiclonus") %>
 <h4>
   <%= @chapter.title %>
+</h4>
   <%= link_to edit_chapter_path(@chapter) do %> Edit <% end %>
   <%= link_to chapter_path(@chapter), :data => {:confirm =>'Send into digital oblivion.', :method => 'delete'} do %> Delete <% end %>
-</h4>
+
+  <%= link_to new_chapter_section_path(@chapter) do %>
+  Add Section
+  <% end %>
+
+  <% if @chapter.sections.any? %>
+    <h4>Sections:</h4>
+
+    <ul>
+      <% @chapter.sections.each do |section| %>
+      <li><%= section.title %> |
+        <%= link_to edit_chapter_section_path(@chapter, section) do %> Edit <% end %> |
+        <%= link_to chapter_section_path(@chapter, section), :data => {:confirm => 'Send section into digital oblivion?', :method => 'delete'} do %> Delete <% end %>
+      </li>
+      <% end %>
+    </ul>
+
+  <% else %>
+
+  <p>No sections. </p>
+
+  <% end %>
