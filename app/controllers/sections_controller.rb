@@ -1,4 +1,9 @@
 class SectionsController < ApplicationController
+  def show
+    @chapter = Chapter.find(params[:chapter_id])
+    @section = Section.find(params[:id])
+  end
+
   def new
     @chapter = Chapter.find(params[:chapter_id])
     @section = @chapter.sections.new

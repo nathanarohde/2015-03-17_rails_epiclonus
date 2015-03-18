@@ -14,9 +14,12 @@
 
     <ul>
       <% @chapter.sections.each do |section| %>
-      <li><%= section.title %> |
-        <%= link_to edit_chapter_section_path(@chapter, section) do %> Edit <% end %> |
-        <%= link_to chapter_section_path(@chapter, section), :data => {:confirm => 'Send section into digital oblivion?', :method => 'delete'} do %> Delete <% end %>
+      <li><%= link_to section.title, chapter_section_path(@chapter, section) %> |
+        <ul>
+          <% section.lessons.each do |lesson| %>
+          <li><%=  lesson.title %> </li>
+          <% end %>
+        </ul>
       </li>
       <% end %>
     </ul>

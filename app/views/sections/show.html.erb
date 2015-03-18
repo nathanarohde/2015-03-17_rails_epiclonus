@@ -1,0 +1,11 @@
+<% content_for(:title, "Epiclonus") %>
+<h4>
+  <%= @chapter.title %>
+  <%= @section.title %>
+</h4>
+<%= link_to edit_chapter_section_path(@chapter, @section) do %> Edit <% end %> |
+<%= link_to chapter_section_path(@chapter, @section), :data => {:confirm => 'Send section into digital oblivion?', :method => 'delete'} do %> Delete <% end %>
+
+<%= link_to new_chapter_section_lesson_path(@chapter, @section) do %>
+Add Lesson
+<% end %>
